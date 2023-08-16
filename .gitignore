@@ -1,1 +1,4 @@
 .env
+buildAndPublish.sh
+executable
+leaderboard.png

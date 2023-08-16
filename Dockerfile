@@ -2,8 +2,10 @@ FROM alpine
 
 WORKDIR app
 
-COPY duolingo .
+COPY executable .
 
-RUN chmod +x duolingo
+COPY assets ./assets
 
-CMD ["/app/duolingo"]
+RUN chmod +x executable
+
+CMD ["/app/executable"]

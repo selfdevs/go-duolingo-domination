@@ -15,6 +15,16 @@ type RequestSignature struct {
 	Timestamp string
 }
 
+func printSecurityCheck(verified bool) {
+	var result string
+	if verified {
+		result = "passed"
+	} else {
+		result = "failed"
+	}
+	println("Security check:", result)
+}
+
 func VerifySignature(r *http.Request) error {
 	signature := getRequestSignature(r)
 
@@ -35,7 +45,7 @@ func VerifySignature(r *http.Request) error {
 
 	verified := ed25519.Verify(hexPublicKey, message, hexSignature)
 
-	println("Verified:", verified)
+	printSecurityCheck(verified)
 
 	if !verified {
 		return errors.New("invalid signature")
