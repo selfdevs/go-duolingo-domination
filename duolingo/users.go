@@ -55,7 +55,7 @@ func GetUser(userId int, wg *sync.WaitGroup, users *[]User) {
 	}
 	response, doErr := http.DefaultClient.Do(req)
 	if doErr != nil {
-		println("Error doing request")
+		panic("Error doing request")
 	}
 	var User User
 	decodeErr := json.NewDecoder(response.Body).Decode(&User)
