@@ -26,7 +26,7 @@ func printSecurityCheck(verified bool) {
 }
 
 func VerifySignature(r *http.Request) error {
-	signature := getRequestSignature(r)
+	signature := GetRequestSignature(r)
 
 	_rawBody, err := io.ReadAll(r.Body)
 
@@ -54,7 +54,7 @@ func VerifySignature(r *http.Request) error {
 	return nil
 }
 
-func getRequestSignature(r *http.Request) RequestSignature {
+func GetRequestSignature(r *http.Request) RequestSignature {
 	signature := r.Header.Get("X-Signature-Ed25519")
 	timestamp := r.Header.Get("X-Signature-Timestamp")
 
