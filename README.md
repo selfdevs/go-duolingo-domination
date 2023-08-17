@@ -17,6 +17,14 @@ The HTTP handlers are defined in [server/handlers.go](server/handlers.go).
 They do not care about most of the logic, they just parse the request, call various
 functions from other packages, then respond with the result.
 
+The [discord](discord) package contains the logic to interact with the Discord API.
+[discord/security.go](discord/security.go) is here to make request's signature
+verification easier.
+
+The [canvas](canvas) package is used to draw the leaderboard once the data
+have been fetched from the Duolingo API. After finishing the drawing, the
+image is saved to a file named "leaderboard.png".
+
 ## Build and deploy the app
 
 Run `go build . -o executable`.
