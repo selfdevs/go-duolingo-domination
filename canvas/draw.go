@@ -8,11 +8,11 @@ import (
 )
 
 func drawTitle(ctx *canvas.Context) {
-	ctx.DrawText(480, 1124, canvas.NewTextLine(createTitleFontFace(), "Duolingo Domination Leaderboard", canvas.Center))
+	ctx.DrawText(480, 1224, canvas.NewTextLine(createTitleFontFace(), "Duolingo Domination Leaderboard", canvas.Center))
 }
 
 func drawEntry(ctx *canvas.Context, user duolingo.User, index int) {
-	y := 1060 - float64(index)*55
+	y := 1160 - float64(index)*55
 	ctx.DrawText(40, y, canvas.NewTextLine(createEntryFontFace(), strconv.Itoa(index+1)+".", canvas.Left))
 	if user.Streak > 0 {
 		drawImage(ctx, "assets/fire.png", 120, y, 16)
@@ -24,20 +24,20 @@ func drawEntry(ctx *canvas.Context, user duolingo.User, index int) {
 }
 
 func drawLogo(ctx *canvas.Context) {
-	drawImage(ctx, "assets/logo.png", 425, 1188, 12)
-	drawImage(ctx, "assets/target.png", 800, 1200, 0.75)
-	drawImage(ctx, "assets/gem.png", 200, 1270, 0.75)
-	drawImage(ctx, "assets/gem.png", 220, 1250, 0.75)
+	drawImage(ctx, "assets/logo.png", 425, 1288, 12)
+	drawImage(ctx, "assets/target.png", 800, 1300, 0.75)
+	drawImage(ctx, "assets/gem.png", 200, 1370, 0.75)
+	drawImage(ctx, "assets/gem.png", 220, 1350, 0.75)
 }
 
 func drawBackground(ctx *canvas.Context) {
 	ctx.SetFillColor(backgroundColor)
-	ctx.DrawPath(0, 0, canvas.Rectangle(960, 1380))
+	ctx.DrawPath(0, 0, canvas.Rectangle(960, 1480))
 }
 
 func DrawLeaderboard(users []duolingo.User) {
 	println("Starting leaderboard generation")
-	C := canvas.New(960, 1380)
+	C := canvas.New(960, 1480)
 	ctx := canvas.NewContext(C)
 
 	drawBackground(ctx)
