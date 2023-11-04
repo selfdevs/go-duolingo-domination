@@ -1,9 +1,0 @@
-name: Build the Docker image
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build and publish
-        run: ./build.sh

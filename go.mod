@@ -1,6 +1,6 @@
 module duolingo
 
-go 1.21.0
+go 1.21
 
 require github.com/tdewolff/canvas v0.0.0-20230725155945-641901f69684
 
