@@ -1,10 +1,12 @@
 package utils
 
-import "testing"
+import (
+	"testing"
+	"time"
+)
 
 func TestGetBeginningOfMonth(t *testing.T) {
 	date := GetBeginningOfMonth()
-	println(date.String())
 	if date.Day() != 1 {
 		t.Fatalf("Expected day to be 1, got %d", date.Day())
 	}
@@ -19,5 +21,12 @@ func TestGetBeginningOfMonth(t *testing.T) {
 	}
 	if date.Nanosecond() != 0 {
 		t.Fatalf("Expected nanosecond to be 0, got %d", date.Nanosecond())
+	}
+}
+
+func TestFormatBeginningOfMonth(t *testing.T) {
+	date := FormatBeginningOfMonth(time.Date(2021, 10, 1, 0, 0, 0, 0, time.UTC))
+	if date != "2021-10-01" {
+		t.Fatalf("Expected date to be 2021-10-01, got %s", date)
 	}
 }

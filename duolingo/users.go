@@ -1,6 +1,7 @@
 package duolingo
 
 import (
+	"duolingo/utils"
 	"encoding/json"
 	"net/http"
 	"strconv"
@@ -24,7 +25,7 @@ type XPSummaries struct {
 }
 
 func getXPGains(userId int) int {
-	req, newRequestErr := http.NewRequest("GET", BaseURL+"/users/"+strconv.Itoa(userId)+"/xp_summaries?startDate=2023-11-01", nil)
+	req, newRequestErr := http.NewRequest("GET", BaseURL+"/users/"+strconv.Itoa(userId)+"/xp_summaries?startDate="+utils.FormatBeginningOfMonth(utils.GetBeginningOfMonth()), nil)
 	if newRequestErr != nil {
 		println("Error creating request")
 		return 0
