@@ -38,8 +38,7 @@ func TestVerifySignature(t *testing.T) {
 	t.Setenv("DISCORD_PUBLIC_KEY", "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
 	req := createRequestWithInvalidSignature()
 	err := VerifySignature(req)
-	if err != nil {
-		t.Skip()
+	if err.Error() != "invalid signature" {
+		t.Fail()
 	}
-	t.Fail()
 }
