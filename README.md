@@ -27,11 +27,11 @@ image is saved to a file named "leaderboard.png".
 
 ## Build and deploy the app
 
-Run `go build . -o executable`.
+Run `go build -o executable`.
 
 ℹ️ If you're are build for an other OS or arch,
 make sure to define GOOS and GOARCH. For example, to build for linux on amd64,
-run `GOOS=linux GOARCH=amd64 go build . -o executable`.
+run `CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o executable`.
 
 For the application to run properly, the asset folder needs to be alongside
 the executable, so don't forget it if you're moving the executable to a container

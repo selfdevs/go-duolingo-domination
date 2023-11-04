@@ -8,4 +8,4 @@ COPY assets ./assets
 
 RUN chmod +x executable
 
-CMD ["/app/executable"]
+CMD ["./executable"]
