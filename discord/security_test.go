@@ -34,6 +34,8 @@ func TestGetRequestSignature(t *testing.T) {
 }
 
 func TestVerifySignature(t *testing.T) {
+	t.Setenv("DISCORD_BOT_TOKEN", "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+	t.Setenv("DISCORD_PUBLIC_KEY", "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
 	req := createRequestWithInvalidSignature()
 	err := VerifySignature(req)
 	if err != nil {
