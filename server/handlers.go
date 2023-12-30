@@ -5,13 +5,15 @@ import (
 	"net/http"
 )
 
+func StatusHandler(w http.ResponseWriter, r *http.Request) {
+	_, err := w.Write([]byte("OK"))
+	if err != nil {
+		panic(err)
+	}
+}
+
 func AddStatusHandler() {
-	http.HandleFunc("/status", func(w http.ResponseWriter, r *http.Request) {
-		_, err := w.Write([]byte("OK"))
-		if err != nil {
-			panic(err)
-		}
-	})
+	http.HandleFunc("/status", StatusHandler)
 }
 
 func AddDiscordInteractionHandler() {
