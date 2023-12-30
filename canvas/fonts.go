@@ -1,10 +1,18 @@
 package canvas
 
-import "github.com/tdewolff/canvas"
+import (
+	"github.com/tdewolff/canvas"
+	"io"
+)
 
 func loadFontFamily() *canvas.FontFamily {
 	feather := canvas.NewFontFamily("feather")
-	if err := feather.LoadFontFile("assets/feather.ttf", canvas.FontRegular); err != nil {
+	font := downloadImage("feather.ttf")
+	data, err := io.ReadAll(font)
+	if err != nil {
+		panic(err)
+	}
+	if err := feather.LoadFont(data, 0, canvas.FontRegular); err != nil {
 		panic(err)
 	}
 	return feather

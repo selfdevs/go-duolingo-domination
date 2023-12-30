@@ -87,7 +87,7 @@ func AnswerLeaderboard(w http.ResponseWriter, interaction Interaction) {
 	w.Header().Set("Content-Type", "application/json")
 	interaction = Interaction{
 		Type: 4,
-		Data: &InteractionData{Content: "Sending it right away!"},
+		Data: &InteractionData{Content: "Sending it right away! (It might take a minute or two for me to process, I'm just an owl after all)"},
 	}
 	err := json.NewEncoder(w).Encode(interaction)
 	if err != nil {

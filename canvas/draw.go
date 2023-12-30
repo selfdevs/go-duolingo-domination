@@ -15,7 +15,7 @@ func drawEntry(ctx *canvas.Context, user duolingo.User, index int) {
 	y := 1160 - float64(index)*55
 	ctx.DrawText(40, y, canvas.NewTextLine(createEntryFontFace(), strconv.Itoa(index+1)+".", canvas.Left))
 	if user.Streak > 0 {
-		drawImage(ctx, "assets/fire.png", 120, y, 16)
+		drawImage(ctx, "fire.png", 120, y, 16)
 	}
 	ctx.DrawText(160, y, canvas.NewTextLine(createEntryFontFace(), strconv.Itoa(user.Streak), canvas.Left))
 	ctx.DrawText(260, y, canvas.NewTextLine(createEntryFontFace(), user.Name, canvas.Left))
@@ -24,10 +24,10 @@ func drawEntry(ctx *canvas.Context, user duolingo.User, index int) {
 }
 
 func drawLogo(ctx *canvas.Context) {
-	drawImage(ctx, "assets/logo.png", 425, 1288, 12)
-	drawImage(ctx, "assets/target.png", 800, 1300, 0.75)
-	drawImage(ctx, "assets/gem.png", 200, 1370, 0.75)
-	drawImage(ctx, "assets/gem.png", 220, 1350, 0.75)
+	drawImage(ctx, "logo.png", 425, 1288, 12)
+	drawImage(ctx, "target.png", 800, 1300, 0.75)
+	drawImage(ctx, "gem.png", 200, 1370, 0.75)
+	drawImage(ctx, "gem.png", 220, 1350, 0.75)
 }
 
 func drawBackground(ctx *canvas.Context) {
