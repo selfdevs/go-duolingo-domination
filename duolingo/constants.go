@@ -2,7 +2,7 @@ package duolingo
 
 const BaseURL = "https://www.duolingo.com/2017-06-30"
 
-var UserIds = [21]int{
+var UserIds = [22]int{
 	1224544831,
 	406428192,
 	930158875,
@@ -24,5 +24,5 @@ var UserIds = [21]int{
 	230140931,
 	819665107,
 	356278997,
-	1224544831,
+	548753842,
 }
